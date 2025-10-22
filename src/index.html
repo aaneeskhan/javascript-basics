@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    * {
+                              margin: 0;
+                              padding: 0;
+                    }
+
+                    #container {
+                              width: 80vw;
+                              height: 80vh;
+                              background-color: yellow;
+                    }
+          </style>
+</head>
+
+<body>
+          <input id="container">
+          <input type="text" id="firstNo">
+          <input type="text" id="secondNo">
+          <button onclick="sum()">Add</button>
+          <p id="para">
+                    sdfsdf
+          </p>
+          </div>
+
+          <script>
+
+                    let e1 = {
+                              id: 101,
+                              name: "Danish",
+                              gender: "Male",
+                              salary: 50000
+                    }
+
+
+                    let e2 = {
+                              id: 102,
+                              name: "Asim",
+                              gender: "Male",
+                              salary: 60000
+                    }
+//let id=  textbox.value
+                    let emp = {
+                              id:textboxId.value ,
+                              name: textBoxName.value,
+                           email: textBoxEmail.value,
+                              salary: 70000
+                    }
+
+                    let e4 = {
+                              id: 104,
+                              name: "Jibran",
+                              gender: "Male",
+                              salary: 70000
+                    }
+
+                    let e5 = {
+                              id: 105,
+                              name: "Aqib",
+                              gender: "Male",
+                              salary: 80000
+                    }
+
+
+                    let employees = [e1, e2, e3, e4, e5];
+
+
+                    for (let i = 0; i < 5; i++) {
+                              console.log("====================================");
+                              let employee = employees[i];
+                              console.log(`Id : ${employee.id}`);
+                              console.log(`Name : ${employee.name}`);
+                              console.log(`Gender : ${employee.gender}`);
+                              console.log(`Salary : ${employee.salary}`);
+                              console.log("====================================");
+                    }
+                    // console.log(employees)
+                    // let rollNos = [10, 20, 30, 40, 50, 60];
+                    // // rollNos[6] = 70;
+                    // rollNos.push(70);
+                    // rollNos.unshift(80);
+                    // console.log(rollNos);
+
+          </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+          <div class="bg-slate-200 w-screen mx-auto">
+                    <h1 class="p-6 mb-6 text-6xl text-center">Create Student</h1>
+                    <form action="" id="studentForm">
+                              <div class="flex  flex-col items-center justify-center">
+
+
+                                        <div class="my-4 flex justify-between">
+                                                  <label for="rollNo" class="block mx-6 text-2xl ">RollNo</label>
+                                                  <input class="block w-[800px] mx-6 bg-white border-2 border-slate-300 rounded-xl h-10"
+                                                            type="text" name="rollNo" id="rollNo">
+                                        </div>
+
+                                        <div class="my-4 flex justify-between">
+                                                  <label for="name" class="mx-6 text-2xl block">Name</label>
+                                                  <input class="block w-[800px] mx-6 bg-white border-2 border-slate-300 rounded-xl h-10"
+                                                            type="text" name="name" id="name">
+                                        </div>
+
+                                        <div class="my-4 flex justify-between">
+                                                  <label for="email" class="block mx-6 text-2xl">Email</label>
+                                                  <input class="block w-[800px] mx-6 bg-white border-2 border-slate-300 rounded-xl h-10"
+                                                            type="email" name="email" id="email">
+                                        </div>
+                                        <div class="my-4 flex justify-between">
+                                                  <label for="fee" class="block mx-6 text-2xl">Fee</label>
+                                                  <input class="block w-[800px] mx-6 bg-white border-2 border-slate-300 rounded-xl h-10"
+                                                            type="number" name="fee" id="fee">
+                                        </div>
+
+                                        <div class="my-4 flex justify-between">
+                                                  <button
+                                                            class="text-2xl rounded-2xl bg-cyan-600 px-24 py-2 pb-4 text-white hover:bg-cyan-800">Create</button>
+                                        </div>
+                              </div>
+                    </form>
+
+
+                    <div>
+                              <table class="w-full">
+                                        <thead>
+                                                  <tr class="bg-slate-800 py-4  text-white text-2xl">
+                                                            <td>RollNo</td>
+                                                            <td>Name</td>
+                                                            <td>Email</td>
+                                                            <td>Fee</td>
+                                                  </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+
+                                        </tbody>
+                              </table>
+                    </div>
+          </div>
+
+
+          <script>
+                    let studentList = [{
+                              rollNo:101,
+                              name:'Dayan',
+                              email:'dayan@gmail.com',
+                              fee:50000
+                    },
+                    {
+                              rollNo:102,
+                              name:'Ifra',
+                              email:'ifra@gmail.com',
+                              fee:60000
+                    }
+                    ,
+                    {
+                              rollNo:103,
+                              name:'Sabah',
+                              email:'sabah@gmail.com',
+                              fee:60000
+                    }
+          
+          ];
+                    let tbody = document.querySelector("#tbody");
+                    getStudentList();
+                    document.querySelector("#studentForm").addEventListener("submit", function (event) {
+                              event.preventDefault();
+                              let formData = new FormData(this);
+                              let student = Object.fromEntries(formData);
+                              studentList.push(student);
+                              getStudentList();
+                    })
+
+                    function getStudentList() {
+                              let studentTrs = "";
+                              studentList.forEach((student) => {
+                                        studentTrs += ` <tr  class="bg-teal-300 py-6 my-2 text-[24px]">
+                                                            <td>${student.rollNo}</td>
+                                                            <td>${student.name}</td>
+                                                            <td>${student.email}</td>
+                                                            <td>${student.fee}</td>
+                                                  </tr>`
+                              });
+
+                              tbody.innerHTML = studentTrs;
+                              // console.log(studentTrs)
+                    }
+          </script>
+</body>
+
+</html>

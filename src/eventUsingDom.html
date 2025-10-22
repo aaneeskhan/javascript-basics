@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    #myDiv {
+                              width: 50vw;
+                              height: 50vh;
+                              margin: 0 auto;
+                              background-color: teal;
+
+
+
+                    }
+          </style>
+</head>
+
+<body>
+          <!--  step 1 publisher -->
+          <div id="myDiv"></div>
+          <input type="text" id="txtBox">
+
+          <p id="txtBoxPara"></p>
+
+          <script>
+                    let myDiv = document.querySelector("#myDiv");
+                    let txtBox = document.querySelector("#txtBox");
+                    let txtBoxPara = document.querySelector("#txtBoxPara");
+
+
+
+
+                    myDiv.addEventListener("mouseenter", function (event) {
+                              event.target.style.backgroundColor = "orange";
+                              myDiv.innerHTML = "<h1>Welcome to Logic Hub</h1>";
+
+                    })
+
+                    myDiv.addEventListener("dblclick", function (event) {
+                              event.target.innerHTML = '<img style="  width: 50vw; height: 50vh;" src="./images/one.jpg" />'
+
+
+                    })
+
+                    myDiv.addEventListener("contextmenu", function (event) {
+                              event.target.innerHTML = '<img style="    transition: all 4s linear; transform: scale(1.2) ; width:50vw; height:50vh; " src="./images/one.jpg" />'
+
+                    })
+                    // myDiv.addEventListener("mousemove", function (event) {
+
+                    //           this.innerText = `X: ${event.clientX} Y: ${event.clientY}`;
+                    //           console.log(event);
+
+                    // })
+
+                    myDiv.addEventListener("drag", function (event) {
+
+                              this.innerText = `X: ${event.clientX} Y: ${event.clientY}`;
+                              console.log(event);
+
+                    })
+
+
+
+                    // myDiv.onmouseenter = function (event) {
+                    //           // event.target.style.backgroundColor = "red"
+                    //           myDiv.style.backgroundColor = "orange"
+                    //           this.style.backgroundColor = "olive"
+                    //           event.target.innerHTML = "<h1>Welcome to Logic HUb</h1>"
+                    // }
+                    myDiv.onmouseleave = function (event) {
+                              event.target.style.backgroundColor = "teal"
+                              event.target.innerHTML = ""
+                    }
+
+                    myDiv.onclick = function (event) {
+                              console.log("event log", event);
+                    }
+                    txtBox.onkeyup = function (event) {
+                              // console.log("Value retrieved using id ", txtBox.value);
+                              console.log("Key Up", event);
+                              console.log(event.target.value);
+                              txtBoxPara.innerHTML = event.target.value;
+                              event.target.style.color = "red"
+
+                              //console.log("Key Up", event.type);
+                    }
+
+
+
+          </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <script>
+                    //  if (!isNaN(x)) {
+                    //                     if (!isNaN(y)) {
+                    //                               let res = x + y;
+                    //                               console.log(res);
+                    //                     }
+                    //           }
+
+                    // Function 
+                    // 1) normal 
+                    // 2) function expression
+                    // 3) annonymous function expression
+                    // function add(x = 0, y = 0) {
+                    //           let res = x + y;
+                    //           console.log(res);
+                    // }
+                    // add()
+                    // let x = 10;
+                    // let sum = function add(x, y) {
+                    //           let res = x + y;
+                    //           console.log(res);
+                    // }
+
+                    // // console.log(sum);
+                    // sum(50, 60)
+
+                    // function add(x = 0, y = 0) {
+                    //           let res = x + y;
+                    //           console.log("Sum ", res);
+
+
+                    // }
+                    // add(100, 300)
+
+
+                    // //2) function expression
+                    // let num1 = 900;
+                    // let num2 = 900;
+                    // let sum = function add(x, y) {
+                    //           let res = x + y;
+                    //           console.log("Sum ", res);
+                    // }
+
+                    // sum(10,20);
+
+
+                    //3) annonymous function expression
+                    // let num1 = 900;
+                    // let num2 = 900;
+                    // let sum = function (x, y) {
+                    //           let res = x + y;
+                    //           console.log("Sum ", res);
+
+                    // }
+
+                    // sum(10, 20);
+
+                    // 4) Self invoking function expression
+                    //    immediate invoking function expression
+                    //   IIFE
+
+
+                    // let sum = function (x, y) {
+                    //           let res = x + y;
+                    //           console.log("Sum ", res);
+                    // }
+                    // (10, 30); let x=10 ;
+
+                    // 5)  Closure function
+                    //      inner function     nestting
+
+                    /*  function add(x, y) {
+                                function show() {
+                                          let res = x + y;
+                                         
+                                }
+  
+                                show();
+                                 console.log(res);
+                      }
+  
+                      add(10, 20)*/
+
+                    // let square = function (x) 
+                    //           console.log("Result is ", x * x);
+
+                    // square(7);
+
+
+
+
+                    // let add = (x, y) => {
+                    //           x++;
+                    //           y++;
+                    //           let res = x + y;
+                    //           return x;
+                    // }
+
+
+                    // let result = add(8)
+                    // console.log(result)
+                       function sub(x, y) {
+                              let res = x - y;
+                              console.log(res)
+                    }
+
+                    function add(x, y, subtraction) {
+                              // x=10
+                              // y=3
+                              // subtraction ={
+                              //           let res = x - y;
+                              //           console.log(res)
+                              // }
+                              let res = x + y;
+                              console.log(res);
+                              console.log(subtraction);
+                               subtraction(x,y);
+
+                    }
+                    //                            2000
+                 
+
+                    add(10, 3, sub);
+
+
+
+          </script>
+</body>
+
+</html>

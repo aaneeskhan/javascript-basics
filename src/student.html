@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <div>
+                <label for="txtBoxSearchByName">Search By Name</label>
+                <input type="text" id="txtBoxSearchByName">
+                <button onclick="searchStudent()">Search</button>
+        </div>
+        <div>
+                <label for="txtBoxRollNo">RollNo</label>
+                <input type="text" id="txtBoxRollNo">
+        </div>
+        <div>
+                <label for="">Name</label>
+                <input type="text" id="txtBoxName">
+        </div>
+        <div>
+                <label for="txtBoxMarks">Marks</label>
+                <input type="text" id="txtBoxMarks">
+        </div>
+        <div>
+                <button onclick="addStudent()">Add</button>
+        </div>
+
+        <div>
+                <table>
+                        <thead>
+                                <tr>
+                                        <td>RollNo</td>
+                                        <td>Name</td>
+                                        <td>Marks</td>
+                                </tr>
+                        </thead>
+                        <tbody id="tblBody">
+
+                        </tbody>
+                </table>
+                <h1 style="color:red" id="errorMessage"></h1>
+        </div>
+
+        <script>
+                let studentList = [
+                        {
+                                rollNo: 101,
+                                name: "ifra",
+                                marks: 900
+                        },
+                        {
+                                rollNo: 102,
+                                name: "shilpee",
+                                marks: 920
+                        },
+
+                        {
+                                rollNo: 108,
+                                name: "Irfan",
+                                marks: 920
+                        },
+
+                        {
+                                rollNo: 109,
+                                name: "insha",
+                                marks: 920
+                        },
+
+                        {
+                                rollNo: 110,
+                                name: "ishfaq",
+                                marks: 920
+                        },
+
+                        {
+                                rollNo: 103,
+                                name: "sabah",
+                                marks: 910
+                        },
+                        {
+                                rollNo: 106,
+                                name: "IFra",
+                                marks: 940
+                        },
+                        {
+                                rollNo: 104,
+                                name: "wasif",
+                                marks: 900
+                        },
+                        {
+                                rollNo: 105,
+                                name: "danish",
+                                marks: 930
+                        },
+
+                        {
+                                rollNo: 107,
+                                name: "ifra",
+                                marks: 960
+                        },
+                ];
+
+                let txtBoxRollNo = document.querySelector("#txtBoxRollNo11");
+               // console.log(txtBoxRollNo);
+                let txtBoxName = document.querySelector("#txtBoxName");
+                let txtBoxMarks = document.querySelector("#txtBoxMarks");
+                let txtBoxSearchByName = document.querySelector("#txtBoxSearchByName");
+                let errorMessage = document.querySelector("#errorMessage");
+                let tblBody = document.querySelector("#tblBody");
+
+                showStudent();
+
+
+                function addStudent() {
+                        let rollNo1 = txtBoxRollNo.value;
+                        let name1 = txtBoxName.value;
+                        let marks1 = txtBoxMarks.value;
+
+                        let student = {
+                                rollNo: rollNo1,
+                                name: name1,
+                                marks: marks1
+                        }
+
+                        studentList.push(student);
+                        showStudent();
+                }
+
+
+
+
+                function showStudent() {
+                      
+
+
+                        // for (let i in studentList) {
+                        //        let student= studentList[i];
+                        //            rows += `<tr>
+                        //                           <td>${student.rollNo}</td>
+                        //                           <td>${student.name}</td>
+                        //                           <td>${student.marks}</td>
+                        //                 </tr>`
+                                
+                        // }
+
+
+                        // forEach()
+                        //map()
+                        // for (let student of studentList) {
+                        //         rows += `<tr>
+                        //                           <td>${student.rollNo}</td>
+                        //                           <td>${student.name}</td>
+                        //                           <td>${student.marks}</td>
+                        //                 </tr>`
+                        // }
+
+                        
+                         let rows = "";
+                        studentList.forEach(student=>{
+                                    rows += `<tr>
+                                                  <td>${student.rollNo}</td>
+                                                  <td>${student.name}</td>
+                                                  <td>${student.marks}</td>
+                                        </tr>`
+                        })
+
+                        tblBody.innerHTML = rows;
+
+                }
+
+
+                function searchStudent() {
+
+                        let searchTerm = txtBoxSearchByName.value.toLowerCase(); // IF  if
+                                                                                // IFRA  ifra
+                        let newStudentList = studentList.filter((student) => student.name.toLowerCase().startsWith(searchTerm))
+
+                        if (newStudentList.length > 0) {
+                                studentList = newStudentList;
+                                errorMessage.innerHTML = "";
+                                showStudent();
+                        }
+                        else {
+                                errorMessage.innerHTML = "No Such Student Found";
+                        }
+                        console.log("New List ", newStudentList);
+                }
+
+
+        </script>
+</body>
+
+</html>

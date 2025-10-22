@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+          <h1 class="bg-teal-500">Hello</h1>
+
+
+          <script>
+                    // destructuring
+                    // array
+                    // object
+                    const arr = ['ifra', 'sabah', 'shilpee', 'dayan', 'hadi', 'jibran', 'asim', 'danish'];
+
+                    // const n1 = arr[0];
+                    // const n2 = arr[1];
+                    // const n3 = arr[2];
+                    // const n4 = arr[3];
+                    // const n5 = arr[4];
+                    // const n6 = arr[5];
+                    // const n7 = arr[6];
+                    // const n8 = arr[7];
+
+                    const [n1, n2, n3, n4, n5, n6, n7, n8] = arr;// ARRAY  de-structuring
+
+                    // console.log(n1);
+                    // console.log(n2);
+                    // console.log(n3);
+
+                    const employee = {
+                              id: 101,
+                              name: 'sabah',
+                              gender: 'Female',
+                              email: 'sabah@gmail.com',
+                              salary: 90000,
+                              myHomeAddress: 'Barzulla'
+                    }
+
+
+                    // function abc([a,b,c]){
+
+                    // }
+                    // abc([10,20,30])
+                    // function showDetails({ name, email, salary }) {
+                    //           console.log("Employee Details are shown below");
+                    //           console.log(name);
+                    //           console.log(email);
+                    //           console.log(salary);
+                    // }
+
+                       function showDetails(emp) {
+                              console.log("Employee Details are shown below");
+                              console.log(emp.name);
+                              console.log(emp.email);
+                              console.log(emp.salary);
+                    }
+
+                   // showDetails(employee)
+
+
+
+
+
+                    // de-structuring
+                    // let id=employee.id;
+                    // let name=employee.name;
+                    // // let gender= employee['gender'];
+                    // let gender= employee.gender;
+                    // let email=employee.email;
+                    // let salary=employee.salary;
+                    // let add= employee.myHomeAddress;
+
+                    //let { name, id, gender, myHomeAddress: add } = employee;
+
+                    // console.log(name)
+                    // console.log(gender)
+                    // // console.log(email)
+                    // // console.log(salary)
+                    // console.log(add)
+                    // console.log(id)
+
+                    // spread operator  
+                    // rest operator
+
+
+                    //===
+
+                    let x=10;
+                    let y="10";
+                    if(x===y){
+                              console.log("x is same as y");
+                    }
+                    else{
+                              console.log('they are different');
+                    }
+
+
+
+
+          </script>
+</body>
+
+</html>

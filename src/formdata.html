@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+          <style>
+                    .fileError {
+                              color: red;
+                              font-weight: bold;
+                    }
+          </style>
+
+</head>
+
+<body>
+          <div class="container mx-auto">
+
+                    <form id="myForm">
+
+                              <div class="">
+                                        <label for="id">Id</label>
+
+                                        <input type="text" name="id" id="id" value="" placeholder="Enter your Id"
+                                                  class="block w-full px-4 py-2 text-gray-700 bg-red border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring">
+                              </div>
+
+                              <div class="">
+                                        <label for="name">Name</label>
+
+                                        <input type="text" name="name" id="name" placeholder="Enter your Name"
+                                                  class="block w-full px-4 py-2 text-gray-700 bg-red border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring">
+                              </div>
+
+
+                              <div class="">
+                                        <label for="email">Email</label>
+
+                                        <input type="text" name="email" id="email" placeholder="Enter your Email"
+                                                  class="block w-full px-4 py-2 text-gray-700 bg-red border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring">
+                              </div>
+
+
+                              <div class="">
+                                        <label for="contactNo">ContactNo</label>
+
+                                        <input type="text" name="contactNo" id="contactNo"
+                                                  placeholder="Enter your Contact No"
+                                                  class="block w-full px-4 py-2 text-gray-700 bg-red border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring">
+                              </div>
+                              <div>
+                                        <label for="uploadFile">Upload Pic</label>
+
+                                        <input type="file" name="uploadFile" id="uploadFile"
+                                                  class="block w-full px-4 py-2 text-gray-700 bg-red border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none focus:ring">
+                                        <label id="lblFileUpload" class="fileError"></label>
+                              </div>
+
+                              <div>
+                                        <button type="submit">Submit</button>
+                              </div>
+                    </form>
+          </div>
+
+          <script>
+
+
+                    const myForm = document.querySelector("#myForm");
+
+                    myForm.onsubmit = function (event) {
+                              event.preventDefault();
+                              let formData = new FormData(this);
+                              let lblFileUpload = document.querySelector("#lblFileUpload");
+                              let fileUploadControl = myForm["uploadFile"];
+                              let files = fileUploadControl.files;
+                              lblFileUpload.innerHTML = "";
+                              console.dir(files)
+                              let file = files[0];
+                              let name = file.name;
+                              // kash3.jpg
+                              let dotIndex = name.lastIndexOf('.')//5
+                              let extension = name.substring(dotIndex + 1);
+                              let ext = extension.toLowerCase();
+                              let slashIndex = file.type.indexOf('/')
+                              let fileType = file.type.substring(0, slashIndex);
+                              // if (ext == 'jpg' || ext == 'jpeg' || ext == 'png' || ext == 'webp') {
+                              if (fileType == "image") {
+                                        let size = file.size;
+                                        if (size <= 100000) {
+                                                  
+                                        }
+                                        else {
+                                                  lblFileUpload.innerHTML = "Maximum file size exceeded";
+                                                  return;
+                                        }
+                              }
+                              else {
+                                        lblFileUpload.innerHTML = "Only jpg, jpeg, png, webp formats are allowed";
+                                        // lblFileUpload.classList.add('fileError') 
+                                        return;
+                              }
+                              // 
+                              // 
+                              // if (files.length > 0) {
+                              //           let file = files[0];
+                              //           console.log(file);
+                              //           let name = file.name;
+                              //           console.log(name);
+                              //           //  let dotIndex = name.lastIndexOf('.')
+                              //           //         let extension = name.substring(dotIndex + 1);
+                              //           console.log(file.type);
+                              //           // let slashIndex = file.type.indexOf('/')
+                              //           let fileType = file.type.substring(0, 5);
+
+                              //           // let ext = extension.toLowerCase();
+                              //           console.log(fileType);
+                              //           //if (ext == 'jpg' || ext == 'jpeg' || ext == 'png' || ext == 'webp') {
+                              //           if (fileType == 'image') {
+                              //           }
+                              //           else {
+                              //                     lblFileUpload.innerHTML = "Only jpg, jpeg, png, webp formats are allowed";
+                              //                     lblFileUpload.classList.add('fileError')
+                              //           }
+
+                              // }
+                              // else {
+                              //           lblFileUpload.innerHTML = "Please select File ";
+                              //           lblFileUpload.classList.add('fileError')
+                              // }
+
+                              // let data = Object.fromEntries(formData);
+                              // console.log(data);
+
+                    }
+
+
+          </script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+   <div class="container bg-slate-400   mx-auto my-4">
+      <div>
+         <input type="text" id="txtBoxSearch" placeholder="Enter Name to Search">
+         <button onclick="searchEmployees()" class="mx-12 bg-teal-400 px-4 py-2 rounded-2xl">Search</button>
+      </div>
+      <div class="py-4">
+         <label for="txtBoxId" class="px-4">Id</label>
+         <input type="text" class="border-2 px-6" value="" placeholder="Enter Id" id="txtBoxId">
+      </div>
+      <div class="py-4">
+         <label for="txtBoxName" class="px-4">Name</label>
+         <input type="text" class="border-2 px-6" placeholder="Enter Name" id="txtBoxName">
+      </div>
+
+      <div class="py-4">
+         <label for="txtBoxEmail" class="px-4">Email</label>
+         <input type="text" class="border-2 px-6" placeholder="Enter Email" id="txtBoxEmail">
+      </div>
+      <div class="py-4">
+         <label for="ddlGender" class="px-4">Gender</label>
+         <select id="ddlGender" class="border-2 px-12">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+         </select>
+      </div>
+      <div class="py-4">
+         <label for="txtBoxSalary" class="px-4">Salary</label>
+         <input type="number" class="border-2 px-6" placeholder="Enter Salary" id="txtBoxSalary">
+      </div>
+
+      <div class="py-4">
+         <button onclick="addEmployee()" class="mx-12 bg-teal-400 px-4 py-2 rounded-2xl" class="px-4">Add At Last
+         </button>
+
+      </div>
+
+
+      <div>
+         <table class="w-screen mx-auto my-4">
+            <thead class="bg-black text-amber-50">
+               <tr>
+                  <td>Id</td>
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>Gender</td>
+                  <td>Salary</td>
+               </tr>
+            </thead>
+            <tbody id="tblBody">
+
+            </tbody>
+         </table>
+      </div>
+
+   </div>
+
+
+
+
+   <script>
+      "use strict"
+
+      var employeesList = [
+         // {
+         //    id: 101,
+         //    name: "ifra",
+         //    email: 'ifra@gmail.com',
+         //    gender: "Female",
+         //    salary: 60000
+         // },
+         // {
+         //    id: 101,
+         //    name: "ifra",
+         //    email: 'ifra@gmail.com',
+         //    gender: "Female",
+         //    salary: 60000
+         // },
+         // {
+         //    id: 101,
+         //    name: "ifra",
+         //    email: 'ifra@gmail.com',
+         //    gender: "Female",
+         //    salary: 60000
+         // },
+         // {
+         //    id: 102,
+         //    name: "shilpee",
+         //    email: 'shilpee@gmail.com',
+         //    gender: "Female",
+         //    salary: 60000
+         // },
+         // {
+         //    id: 103,
+         //    name: "irfan",
+         //    email: 'irfan@gmail.com',
+         //    gender: "Male",
+         //    salary: 70000
+         // },
+         // {
+         //    id: 104,
+         //    name: "jibran",
+         //    email: 'jibran@gmail.com',
+         //    gender: "Male",
+         //    salary: 80000
+         // },
+         // {
+         //    id: 105,
+         //    name: "asim",
+         //    email: 'asim@gmail.com',
+         //    gender: "Male",
+         //    salary: 70000
+         // },
+         // {
+         //    id: 105,
+         //    name: "dayan",
+         //    email: 'dayan@gmail.com',
+         //    gender: "Male",
+         //    salary: 80000
+         // },
+         // {
+         //    id: 106,
+         //    name: "zeeshan",
+         //    email: 'zeeshan@gmail.com',
+         //    gender: "Male",
+         //    salary: 60000
+         // }
+      ];
+
+      let txtBoxId = document.querySelector("txtBoxId");
+      let txtBoxName = document.querySelector("#txtBoxName");
+      let txtBoxEmail = document.querySelector("#txtBoxEmail");
+      let ddlGender = document.querySelector("#ddlGender");
+      let txtBoxSalary = document.querySelector("#txtBoxSalary");
+      let tblBody = document.querySelector("#tblBody");
+
+      function addEmployee() {
+         let id =  document.querySelector("txtBoxId");
+         let name = txtBoxName.value;
+         let email = txtBoxEmail.value;
+         let gender = ddlGender.value;
+         let salary = txtBoxSalary.value;
+
+         let employee = {
+            id,
+            name,
+            email,
+            gender,
+            salary
+         }
+
+         employeesList.push(employee);
+         showEmployees();
+      }
+
+
+      function showEmployees() {
+
+         let rows = "";
+
+
+         for (let emp of employeesList) {
+            rows += `  <tr>
+                              <td>${emp.id}</td>
+                              <td>${emp.name}</td>
+                              <td>${emp.email}</td>
+                              <td>${emp.gender}</td>
+                              <td>${emp.salary}</td>
+                      </tr>`;
+
+         }
+         tblBody.innerHTML = rows;
+
+      }
+      showEmployees();
+
+
+      function searchEmployees() {
+         let searchTerm = document.querySelector("#txtBoxSearch").value;
+      
+
+         let newList = employeesList.filter((emp) => emp.name == searchTerm);
+         if (newList.length > 0) {
+              tblBody.innerHTML="";
+            employeesList = newList;
+              showEmployees()
+
+         }
+      }
+
+
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <style>
+                    .container {
+                              width: 80vw;
+                              height: 50vh;
+                              box-shadow: 5px 5px 5px gray;
+                              margin: 0 auto;
+                    }
+
+                    .img-box {
+                              width: 100%;
+                              height: 100%;
+                    }
+
+                    .img-box-animate {
+
+                              border-radius: 200px;
+                    }
+
+                    .container-bg {
+                              background-color: burlywood;
+                    }
+
+                    .abc {
+                              background-color: burlywood;
+                    }
+          </style>
+</head>
+
+<body>
+          <div id="myDiv" class="container">
+                    <img src="images/1.jpeg" class="img-box" id="myImg" alt="">
+                    <button id="btnPrevious">Previous</button>
+                    <button id="btnNext">Next</button>
+          </div>
+
+
+          <script>
+                    const imageArr=["images/1.jpeg","images/2.jpeg","images/3.jpeg",
+                    "images/4.jpeg","images/5.jpeg","images/6.jpeg",
+                    "images/7.jpg","images/8.jpg","images/9.jpg","images/10.jpg",
+                    ];
+                    const myDiv = document.querySelector("#myDiv");
+                    const myImg = document.querySelector("#myImg");
+                    const btnPrevious = document.querySelector("#btnPrevious");
+                    const btnNext = document.querySelector("#btnNext");
+
+                    let i=0;
+                    btnNext.addEventListener("click", function(){
+                              console.log(i)
+                              i++;
+                              if(i < imageArr.length){
+                                        myImg.setAttribute("src",imageArr[i]);
+                              }
+                              else{
+                                        i=0;
+                                         myImg.setAttribute("src",imageArr[i]);
+                              }
+                    });
+
+                    btnPrevious.addEventListener("click", function(){
+                                 i--;
+                                 if(i >= 0){
+                                           myImg.setAttribute("src",imageArr[i]);
+                                 }
+                                 else{
+                                       
+                                        i=imageArr.length-1;
+                                        console.log(i)
+                                        myImg.setAttribute("src",imageArr[i]);
+                                 }
+                    })
+
+
+
+
+
+
+
+
+
+                    // myDiv.addEventListener('mouseenter', function () {
+                    //           myImg.setAttribute("src", "images/d2.jpeg");
+                    //          // console.log(myImg.getAttribute("src"));
+
+                    //           //myImg.className = "img-box-animate img-box"
+                    //        //   myImg.classList.add("img-box-animate");
+                    // })
+
+                    //   myDiv.addEventListener('mouseleave', function () {
+                           
+                         
+                    //           // myImg.classList.remove("img-box-animate");
+                    //           myImg.classList.toggle("img-box-animate");
+                    // })
+
+
+
+          </script>
+</body>
+
+</html>

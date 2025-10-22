@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <script>
+                    function fun5(x) {
+                              let r = x * x * x;
+                              return r;
+                    }
+                    function fun4(x) {
+                              let z = x * x;
+                              let r = fun5(z);//64
+                              return r;
+                    }
+
+                    function fun3(x, y) {
+                              let z = x - y;
+                              let r = fun4(z)// pause 64
+                              return r;
+                    }
+                    function fun2(x, y) {
+                              //     3+2
+                              let z = x + y; //5
+                              let r = fun3(z, x)  //5 3  pause 64
+                              return r;
+                    }
+
+                    function fun1(x, y) {
+                              let r = fun2(x, y);// pause 64
+                              return r;
+                    }
+                    let arr=[];
+                   
+                    //  let r = fun1(3, 2);
+                    // console.log(r);
+
+                    function fun() {
+                              fun();
+                    }
+
+                    fun();
+          </script>
+</body>
+
+</html>

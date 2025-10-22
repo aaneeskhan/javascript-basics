@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <script>
+                    function success(employee) {
+                              console.log('promise fullfilled ', data)
+                    }
+                    function reject(data) {
+                              console.log('sorry promise rejected', data)
+                    }
+
+                    let prom = new Promise((fullfilled, failure) => {
+                              let numerator = parseInt(prompt("Enter any numerator"));
+                              let donominator = Number(prompt("Enter any denominator"));
+
+                              let result = numerator / donominator;
+                              if (donominator == 0) {
+                                        failure("Something went wrong! actually donomiator is zero");
+                              }
+                              else {
+                                        fullfilled("Everything is cool");
+                              }
+                    });
+                    prom.then(success).catch(reject)
+
+                    // 
+
+          </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+          <style>
+
+          </style>
+</head>
+
+<body>
+          <input type="text" id="txtBoxFirstNum" placeholder="Enter First Number">
+          <input type="text" id="txtBoxSecondNum" placeholder="Enter Second Number">
+
+          <button onclick="getData()">Add</button>
+
+          <div class="container bg-slate-400   mx-auto my-4">
+
+                    <div class="py-4">
+                              <label for="txtBoxId" class="px-4">Id</label>
+                              <input type="text" class="border-2 px-6" value="" placeholder="Enter Id" id="txtBoxId">
+                    </div>
+                    <div class="py-4">
+                              <label for="txtBoxName" class="px-4">Name</label>
+                              <input type="text" class="border-2 px-6" placeholder="Enter Name" id="txtBoxName">
+                    </div>
+
+                    <div class="py-4">
+                              <label for="txtBoxEmail" class="px-4">Email</label>
+                              <input type="text" class="border-2 px-6" placeholder="Enter Email" id="txtBoxEmail">
+                    </div>
+                    <div class="py-4">
+                              <label for="ddlGender" class="px-4">Gender</label>
+                              <select id="ddlGender" class="border-2 px-12">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                              </select>
+                    </div>
+                    <div class="py-4">
+                              <label for="txtBoxSalary" class="px-4">Salary</label>
+                              <input type="number" class="border-2 px-6" placeholder="Enter Salary" id="txtBoxSalary">
+                    </div>
+
+                    <div class="py-4">
+                              <button onclick="addEmployee()" class="mx-12 bg-teal-400 px-4 py-2 rounded-2xl"
+                                        class="px-4">Save
+                                        Employee</button>
+                              <button onclick="showEmployees()" class="mx-12 bg-cyan-400 px-4 py-2 rounded-2xl">Show
+                                        Employees</button>
+                    </div>
+
+
+                    <div>
+                              <table>
+                                        <thead>
+                                                  <tr>
+                                                            <td>Id</td>
+                                                            <td>Name</td>
+                                                            <td>Email</td>
+                                                            <td>Gender</td>
+                                                            <td>Salary</td>
+                                                  </tr>
+                                        </thead>
+                                        <tbody id="tblBody">
+
+                                        </tbody>
+                              </table>
+                    </div>
+
+          </div>
+
+
+          <script>
+
+
+                    function getData() {
+                              let num1 = document.querySelector("#txtBoxFirstNum").value
+                              let num2 = document.querySelector("#txtBoxSecondNum").value
+                    
+                              let n1=parseInt(num1)
+                              let n2=parseInt(num2)
+                              //  70, 5
+                              add(n1,n2,sub);
+                    }
+
+                    //           70    5      sub
+                    function add(x,    y,     subtraction){
+                              let result= x+y;
+                              console.log(`The sum of two numbers that is ${x} and ${y} is ${result}`);
+                              subtraction(x,y,mul)
+                    }
+
+                      
+                    
+                    
+                    
+                    
+                    
+                    
+                              // 70  5 mul
+                    let  sub= (x,y, multiplication)=>{
+                              let result= x-y;
+                              console.log(`The subtraction of two numbers that is ${x} and ${y} is ${result}`);
+                    
+                              multiplication(x,y);
+                    }
+
+                         let  mul= (x,y)=>{
+                              let result= x*y;
+                              console.log(`The multiplication of two numbers that is ${x} and ${y} is ${result}`);
+                    }
+
+
+
+
+
+                    let employees = [];
+
+                    function addEmployee() {
+                              let txtBoxId = document.querySelector("#txtBoxId");
+                              let empId = txtBoxId.value;
+
+                              let txtBoxName = document.querySelector("#txtBoxName");
+                              let empName = txtBoxName.value;
+
+                              let txtBoxEmail = document.querySelector("#txtBoxEmail");
+                              let empEmail = txtBoxEmail.value;
+
+                              let ddlGender = document.querySelector("#ddlGender");
+                              let empGender = ddlGender.value;
+
+                              let txtBoxSalary = document.querySelector("#txtBoxSalary");
+                              let empSalary = txtBoxSalary.value;
+
+                              let employee = {
+                                        id: empId,
+                                        name: empName,
+                                        email: empEmail,
+                                        gender: empGender,
+                                        salary: empSalary
+                              }
+
+                              employees.push(employee)
+                    }
+
+
+                    function showEmployees() {
+                              console.log("showEmployees")
+                    }
+          </script>
+</body>
+
+</html>
