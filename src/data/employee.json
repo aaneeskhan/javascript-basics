@@ -1,0 +1,65 @@
+[
+  {
+    "id": 101,
+    "name": "ifra",
+    "gender": "Female",
+    "salary": 100000,
+    "isActive": true
+  },
+  {
+    "id": 102,
+    "name": "dayan",
+    "gender": "Male",
+    "salary": 900000,
+    "isActive": true
+  },
+  {
+    "id": 103,
+    "name": "Shilpee",
+    "gender": "Female",
+    "salary": 800000,
+    "isActive": true
+  },
+  {
+    "id": 104,
+    "name": "Jibran",
+    "gender": "Male",
+    "salary": 700000,
+    "isActive": true
+  },
+  {
+    "id": 105,
+    "name": "Hadi",
+    "gender": "Male",
+    "salary": 700000,
+    "isActive": true
+  },
+  {
+    "id": 106,
+    "name": "Asim",
+    "gender": "Male",
+    "salary": 600000,
+    "isActive": true
+  },
+  {
+    "id": 107,
+    "name": "Anees",
+    "gender": "Male",
+    "salary": 600000,
+    "isActive": true
+  },
+  {
+    "id": 108,
+    "name": "Danish",
+    "gender": "Male",
+    "salary": 500000,
+    "isActive": false
+  },
+  {
+    "id": 109,
+    "name": "Wasif",
+    "gender": "Male",
+    "salary": 500000,
+    "isActive": false
+  }
+]

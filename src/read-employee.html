@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+          <div id="dynamicDiv">
+
+          </div>
+          <script>
+                    function success1(rawData) {
+                              var prom2 = rawData.text();
+                              console.log("New Promisse", prom2);
+                              return prom2;
+                    }
+
+                    function success2(data) {
+                              console.log("Actaul Data", data);
+                              const dynamicDiv = document.querySelector("#dynamicDiv");
+                              dynamicDiv.innerHTML=data;
+                    }
+
+                    function error(err) {
+                              console.log(err);
+                    }
+
+                    // fetch("http://127.0.0.1:5500/src/data/employee.json")
+                    // fetch("http://127.0.0.1:5500/src/data/message.txt")
+                    fetch("http://127.0.0.1:5500/src/data/profile.html")
+                              .then(success1)
+                              .then(success2)
+                              .catch(error)
+          </script>
+</body>
+
+</html>
