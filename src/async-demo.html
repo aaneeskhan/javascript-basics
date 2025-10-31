@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+          <!-- sync
+         
+         1) tea          1h    8oclcok
+         2) make bread   2h
+         3) prepare food 3h
+         4) make rice    1h
+         5) wash clothes 2h
+         6) clean home   2h
+
+
+         
+         
+         -->
+          <div>
+                    <table class="w-screen ">
+                              <thead>
+                                        <tr class="border">
+                                                  <td>UserId</td>
+                                                  <td>Title</td>
+                                                  <td>Completed</td>
+                                        </tr>
+                              </thead>
+                              <tbody id="tblBody">
+
+                              </tbody>
+                    </table>
+          </div>
+
+          <script>
+
+                    async function loadData() {
+                              console.log('start downloading...')
+                              let response = await fetch("https://jsonplaceholder.typicode.com/todos");
+                              console.log('end downloading...')
+                              let todos = await response.json();
+
+
+                              const tblBody = document.querySelector("#tblBody");
+                              let trs = "";
+                              todos.forEach(todo => {
+                                        trs += `<tr class="border" >
+                                                  <td>${todo.userId}</td>
+                                                  <td>${todo.title}</td>
+                                                  <td>${todo.completed}</td>
+                                        </tr>`
+                              });
+
+                              tblBody.innerHTML = trs;
+
+
+
+                    }
+
+                    loadData();
+                    async function fun() {
+                              console.log('outside fn')
+                    }
+                    fun();
+
+          </script>
+</body>
+
+</html>

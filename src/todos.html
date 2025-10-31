@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+          <div>
+                    <table class="w-screen ">
+                              <thead>
+                                        <tr class="border">
+                                                  <td>UserId</td>
+                                                  <td>Title</td>
+                                                  <td>Completed</td>
+                                        </tr>
+                              </thead>
+                              <tbody id="tblBody">
+
+                              </tbody>
+                    </table>
+          </div>
+          <script>
+
+                    fetch("https://jsonplaceholder.typicode.com/todos")
+                              .then((response) => {
+                                        let res = response.json();
+                                        return res;
+                              }).then((todos) => {
+                                        console.log(todos);
+                                        const tblBody = document.querySelector("#tblBody");
+                                        let trs = "";
+                                        todos.forEach(todo => {
+                                                  trs += `<tr class="border" >
+                                                  <td>${todo.userId}</td>
+                                                  <td>${todo.title}</td>
+                                                  <td>${todo.completed}</td>
+                                        </tr>`
+                                        });
+
+                                        tblBody.innerHTML = trs;
+                              }).catch(error => {
+                                        console.error(error)
+                              })
+          </script>
+</body>
+
+</html>
