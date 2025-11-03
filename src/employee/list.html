@@ -5,15 +5,53 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
+          <style>
+                    .my-img {
+                              width: 120px;
+                              height: 100px;
+                    }
+          </style>
 </head>
 
 <body>
+          <div>
+                    <table>
+                              <thead>
+                                        <tr>
+                                                  <td>Emp Code</td>
+                                                  <td>Name</td>
+                                                  <td>Email</td>
+                                                  <td>Salary</td>
+                                                  <td>Profile</td>
+                                        </tr>
+                              </thead>
+                              <tbody id="tblBody"></tbody>
+                    </table>
+
+          </div>
+          <a href="./employeeDetail.html">Details</a>
           <script>
                     async function loadEmployees() {
                               let response = await fetch("https://trainingapi.logichubss.com/api/employees/basic-details");
                               let employees = await response.json();
                               if (employees.isSuccess) {
                                         console.log(employees.value)
+                                        const employeesData = employees.value;
+                                        const tblBody = document.querySelector("#tblBody");
+                                        let rows = ""
+                                        employeesData.forEach(employee => {
+                                                  rows += `
+                                                            <tr>
+                                                            <td>${employee.empCode}</td>        
+                                                            <td>${employee.name}</td>        
+                                                            <td>${employee.email}</td>        
+                                                            <td>${employee.salary}</td>        
+                                                            <td> <img class="my-img" src="https://trainingapi.logichubss.com${employee.filePath}" alt=""></td>        
+                                                            <td>  <a href="./employeeDetail.html?id=${employee.id}">Details</a></td>   
+                                                   
+                                                            </tr>`
+                                        })
+                                        tblBody.innerHTML = rows
                               }
 
                     }
