@@ -5,33 +5,70 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
+          <link rel="stylesheet" href="../output.css">
           <style>
                     .my-img {
                               width: 120px;
                               height: 100px;
                     }
+
+                    #loader {
+                              width: 50vw;
+                              height: 100vh;
+                              margin: 0 auto;
+                    }
+
+                    .collapse {
+                              display: none;
+                    }
+
+                    .show {
+                              display: block;
+                    }
           </style>
 </head>
 
 <body>
-          <div>
-                    <table>
-                              <thead>
-                                        <tr>
-                                                  <td>Emp Code</td>
-                                                  <td>Name</td>
-                                                  <td>Email</td>
-                                                  <td>Salary</td>
-                                                  <td>Profile</td>
-                                        </tr>
-                              </thead>
-                              <tbody id="tblBody"></tbody>
-                    </table>
+          <div class="w-screen bg-slate-300">
+                    <div id="loader" class="show">
+                              <img src="/src/assets/images/loader.gif" alt="">
+                    </div>
+
+
+                    <div id="content" class="collapse">
+                              <table class="w-full">
+                                        <thead class="bg-slate-900 text-white text-2xl">
+                                                  <tr>
+                                                            <td>Emp Code</td>
+                                                            <td>Name</td>
+                                                            <td>Email</td>
+                                                            <td>Salary</td>
+                                                            <td>Profile</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                  </tr>
+                                        </thead>
+                                        <tbody id="tblBody"></tbody>
+                              </table>
+                    </div>
+
 
           </div>
-          <a href="./employeeDetail.html">Details</a>
           <script>
+                    const loader = document.querySelector("#loader");
+                    const content = document.querySelector("#content");
+
+
                     async function loadEmployees() {
+                              //           let x=10;
+                              //           if(x == 10){
+                              //                     console.log('hello');
+                              //           }
+                              //           else{
+                              //                     console.log('hi');
+                              //           }
+
+                              //          let res=  x == 10 ?  console.log('hello') :  console.log('hi')
                               let response = await fetch("https://trainingapi.logichubss.com/api/employees/basic-details");
                               let employees = await response.json();
                               if (employees.isSuccess) {
@@ -39,20 +76,31 @@
                                         const employeesData = employees.value;
                                         const tblBody = document.querySelector("#tblBody");
                                         let rows = ""
-                                        employeesData.forEach(employee => {
+                                        employeesData.forEach((employee, i) => {
+
                                                   rows += `
-                                                            <tr>
+                                                            <tr class ="${i % 2 == 0 ? 'bg-purple-300' : 'bg-orange-300'}" >
                                                             <td>${employee.empCode}</td>        
                                                             <td>${employee.name}</td>        
                                                             <td>${employee.email}</td>        
                                                             <td>${employee.salary}</td>        
                                                             <td> <img class="my-img" src="https://trainingapi.logichubss.com${employee.filePath}" alt=""></td>        
-                                                            <td>  <a href="./employeeDetail.html?id=${employee.id}">Details</a></td> |  
-                                                            <td>  <a href="./deleteEmployee.html?id=${employee.id}">Delete</a></td>  
+                                                            <td>  
+                                                                      <a class="bg-blue-500 shadow-blue-50xl  text-white rounded-4xl px-4 py-2"  href="./employeeDetail.html?id=${employee.id}">Details</a></td> | 
+                                                           </td>
+                                                             <td>
+                                                                       <a  class="bg-red-700 shadow-2xl shadow-amber-400 text-white rounded-4xl px-4 py-2" href="./deleteEmployee.html?id=${employee.id}">Delete</a> 
+                                                         </td>
                                                    
                                                             </tr>`
                                         })
-                                        tblBody.innerHTML = rows
+                                        tblBody.innerHTML = rows;
+                                        content.classList.add('show');
+                                        content.classList.remove('collapse');
+
+                                        loader.classList.remove('show');
+                                        loader.classList.add('collapse');
+
                               }
 
                     }
