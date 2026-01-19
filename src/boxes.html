@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #grandParent {
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px;
+        width: 80vw;
+        height: 80vh;
+      }
+      #parent {
+        border: 2px solid green;
+        padding: 10px;
+        margin: 10px;
+        width: 80%;
+        height: 80%;
+        display: flex;
+      }
+      .child {
+        border: 2px solid blue;
+        padding: 10px;
+        margin: 10px;
+        width: 20%;
+        height: 20%;
+        /* background-color: rgb(200,200,200); */
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="">
+      <div id="parent">
+        <div class="child" id="childOne">first</div>
+        <div class="child" id="childTwo">Second</div>
+        <div class="child" id="childThree">Third</div>
+        <div class="child" id="childFour">Fourth</div>
+        <div class="child" id="childFive">Fifth</div>
+      </div>
+    </div>
+    
+    <script>
+      const parent = document.querySelector("#parent");
+      const grandParent = parent.parentElement;
+      // console.log("This is grandParent element",grandParent)
+      // grandParent.style.border="5px solid black"
+      // grandParent.style.padding="20px"
+      // grandParent.style.margin="20px"
+      // grandParent.style.width="85vw"
+      // grandParent.style.height="85vh"
+
+      //    this is parent node
+      // const htmlId=document.querySelector("#mainHtml")
+      //  console.log("bodyParent node",htmlId.parentElement)
+
+      // const parentNode = parent.parentNode
+      // console.log("this is grandparent node",grandParent)
+
+      // parentNode.style.border="5px solid black"
+
+      // this is children node
+
+      const children = parent.children;
+      console.log("children element", children);
+    </script>
+  </body>
+</html>

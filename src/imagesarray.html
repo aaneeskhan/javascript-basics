@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+            <style>
+                    #sliderImg{
+                            height: 300px;
+                            width: 400 px;
+                            border-radius: 10%;
+                            border: 5px solid orange;
+                            box-shadow: 5px crimson;
+                            
+                    }
+            </style>
+<body>
+
+            <div>
+                    <img id="sliderImg" src="images/1.jpeg" alt="">
+            </div>
+
+            <button onclick="previous()">Previous</button>
+            <button onclick="next()">Next</button>
+
+
+            <script>
+                    let images=["images/1.jpeg","images/2.jpeg","images/3.jpeg",
+                    "images/4.jpeg"];
+
+                    let sliderImg=document.querySelector("#sliderImg");
+                    let i=0;
+                    function next()
+                    {
+                        i++
+                        if(i>= images.length)i=0;
+                        sliderImg.src=`src/images/${images[i]}`
+                        
+                        
+                          
+                    }
+
+                     function previous()
+                    {
+                         
+                        i--;
+                        if(i<0)i=images.length-1;
+                        sliderImg.src=`src/images/${images[i]}`
+                          
+                    }
+
+
+            </script>
+</body>
+</html>

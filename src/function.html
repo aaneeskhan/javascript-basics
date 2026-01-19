@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. function expression
+        let sum = function add(x,y){
+        let res = x+y
+        console.log(res)
+        
+         }
+         sum(3,2)
+
+        //2. annonymous function
+
+        // let sum = function (x,y){
+        //     let res=x+y
+        //     console.log(res)
+        // }
+        // sum (2,3)
+
+    //  3.self invoking function
+
+    // let sum = function (x,y){
+    //     let res=x+y
+    //     console.log(res)
+    // }(1,2)
+    
+// 4.closure / nested function
+    // let sum = function add(x,y){
+    //     let res=x+y
+
+    //     function fun(){
+    //         console.log(`the value of x is ${x} and y is ${y}`)
+    //         let ans = res * res
+    //         return ans
+    //     }
+    //     let a = fun()
+    //     console.log(`the square is ${a}`)
+    // }(2,3)
+
+
+    // 5. normal function
+
+//    let sum = function add(x,y){
+//          let res = x+y
+//        console.log(res)
+//     }
+//     (10,20)
+
+        
+    </script>
+</body>
+</html>

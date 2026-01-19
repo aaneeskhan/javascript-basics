@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <ul id="myUl">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+      <li>Five</li>
+    </ul>
+    <button id="btnAdd">Add</button>
+
+    <script>
+      //   let lis = document.querySelectorAll("li");
+
+      //   for (const element of lis) {
+      //     element.addEventListener("click", (e) => {
+      //         console.log(e.target.innerText);
+      //     //  e.target.tagName=== "LI" &&
+      //       e.target.style.display="none";
+      //     });
+      //   }
+
+      let i = 5;
+      const Ul = document.querySelector("#myUl");
+      document.querySelector("#myUl").addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          console.log("you clicked on LI:", event.target.innerText);
+          console.log("you clicked on LI:", event.target.tagName);
+          console.log(e.target.innerText);
+          event.target.style.display = "none";
+        }
+      });
+
+      document.querySelector("#btnAdd").addEventListener("click", () => {
+        // const Ul = document.querySelector("#myUl");
+        myUl.innerHTML += `<li>ITEM${++i}</li>`;
+      });
+
+      // document.addEventListener("click", function (event) {
+      //   event.target.style.display = "none";
+      // });
+
+      myUl.addEventListener("click", (event) => {
+        event.target.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

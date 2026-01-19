@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>empCode</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>fileId</td>
+
+                </tr>
+
+
+
+            </thead>
+            <tbody id="tblBody"></tbody>
+
+
+
+        </table>
+
+        
+    </div>
+
+    <script>
+
+async function loadEmployees(){
+    let response = await fetch("http://trainingapi.logichubss.com/api/employees/basic-details");
+    let employees = await response.json();
+    if(employees.isSuccess){
+        console.log(employees.value)
+    }
+    const tblBody = document.querySelector("#tblBody")
+    let trs = "";
+    employees.value.forEach(employee => {
+        trs += `  <tr>
+                    <td>${employee.id}</td>
+                    <td>${employee.empCode}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.email}</td>
+                    <td>
+                            <img src="http://trainingapi.logichubss.com/${employee.filePath}" alt="">
+                        </td>
+
+                </tr>`
+    });
+
+    tblBody.innerHTML= trs;
+    
+}
+loadEmployees();
+
+
+    </script>
+</body>
+</html>

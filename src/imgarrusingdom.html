@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Array with DOM</title>
+  <style>
+    .headingClass{
+        color:blue
+        
+    }
+    .imageClass{
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+ <div>
+                    <img id="sliderImg" src="images/10.jpg" alt="">
+            </div> 
+    
+  <div id="imageContainer"></div>
+   <button onclick="loadImages()">Load Images</button> 
+
+
+  <script>
+    // Array of image URLs
+ const images  = ["images/11.JPG","images/12.JPG","images/14.JPG","images/15.JPG",];
+
+
+// Get container from DOM
+const container = document.querySelector("#imageContainer");
+  let h1=  document.createElement("h1");
+  h1.innerText="welcome to dom"
+
+  h1.id="myHeading"
+  h1.className="headingClass"
+  h1.setAttribute("title", "this is dom")
+  console.dir(h1)
+
+
+ 
+  
+  const img = document.createElement("img");
+  
+
+  img.src = "src/images/11.JPG";
+
+  img.alt="no such image found"
+  img.className="imageClass"
+  img.setAttribute("width","300px")
+  img.setAttribute("height","300px")
+  img.setAttribute("border-radius","10px")
+  container.appendChild(h1)
+  container.appendChild(img)
+
+   
+  
+
+
+
+
+  </script>
+</body>
+</html>

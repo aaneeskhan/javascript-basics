@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="" id="txtFirstNumber" placeholder="Enter first number">
+        <input type="" id="txtSecondNumber" placeholder="Enter second number">
+        <input type="" id="resultInput" readonly>
+    </div>
+    <div>
+        <button onclick=sum()>add</button>
+        <button onclick=sub()>sub</button>
+        <button onclick=mul()>mul</button>
+        <button onclick=mod()>mod</button>
+        <button onclick=div()>div</button>
+    </div>
+
+
+    <script>
+
+    var txtFirstNumber=document.querySelector("#txtFirstNumber")
+    var txtSecondNumber=document.querySelector("#txtSecondNumber")
+    var result=document.querySelector("#resultInput")
+ function sum()
+ {
+  
+    var fNo=parseInt(txtFirstNumber.value)
+    var sNo=parseInt(txtSecondNumber.value)
+
+    var result= fNo + sNo;
+    resultInput.value=result
+
+ }
+
+
+ function sub(){
+    var fNo=parseInt(txtFirstNumber.value)
+    var sNo=parseInt(txtSecondNumber.value)
+
+     var result= fNo - sNo;
+    resultInput.value=result
+ }
+
+ function mul(){
+    var fNo=parseInt(txtFirstNumber.value)
+    var sNo=parseInt(txtSecondNumber.value)
+
+     var result= fNo * sNo;
+    resultInput.value=result
+ }
+
+ function  mod(){
+    var fNo=parseInt(txtFirstNumber.value)
+    var sNo=parseInt(txtSecondNumber.value)
+
+     var result= fNo % sNo;
+    resultInput.value=result
+ }
+
+ function div(){
+    var fNo=parseInt(txtFirstNumber.value)
+    var sNo=parseInt(txtSecondNumber.value)
+
+     var result= fNo / sNo;
+    resultInput.value=result
+ }
+
+
+    </script>
+</body>
+</html>

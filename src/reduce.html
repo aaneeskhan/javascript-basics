@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Salary Employee</title>
+    <link rel="stylesheet" href="reduce.css">
+</head>
+
+<body>
+    <div>
+        <div id="newDiv">
+            <div>
+            <label for="empId">Employee Id:</label>
+            <input type="number" id="empId" required />
+        </div>
+
+        <div>
+            <label for="empEmail">Employee Email:</label>
+            <input type="email" id="empEmail" required />
+        </div>
+
+        <div>
+            <label for="empName">Employee Name:</label>
+            <input type="text" id="empName" required />
+        </div>
+
+        <div>
+            <label for="empGender">Employee Gender:</label>
+            <select name="empGender" id="empGender" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="empSalary">Employee Salary:</label>
+            <input type="number" id="empSalary" required />
+        </div>
+
+        <div>
+            <button onclick="addEmployee()">Add Employee</button>
+        </div>
+
+        <div>
+            <button onclick="topSalariedEmployee()">Top Salaried Employee</button>
+        </div>
+        </div>
+
+        <div>
+            <table class="empTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Email</td>
+                        <td>Name</td>
+                        <td>Gender</td>
+                        <td>Salary</td>
+                    </tr>
+                </thead>
+                <tbody id="tblBody"></tbody>
+            </table>
+        </div>
+
+        <div>
+            <table class="empTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Email</td>
+                        <td>Name</td>
+                        <td>Gender</td>
+                        <td>Salary</td>
+                    </tr>
+                </thead>
+                <tbody id="empBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let employeeArr = [];
+        const tblBody = document.querySelector("#tblBody");
+        const empBody = document.querySelector("#empBody");
+
+        function addEmployee() {
+            const empId = document.querySelector("#empId").value;
+            const empName = document.querySelector("#empName").value;
+            const empEmail = document.querySelector("#empEmail").value;
+            const empGender = document.querySelector("#empGender").value;
+            const empSalary = document.querySelector("#empSalary").value;
+
+            const employee = {
+                empId,
+                empName,
+                empEmail,
+                empGender,
+                empSalary,
+            };
+
+            employeeArr.push(employee);
+            showEmployee();
+        }
+
+        function showEmployee() {
+            let trs = "";
+
+            employeeArr.forEach((employee) => {
+                trs += `  <tr>
+                        <td>${employee.empId}</td>
+                        <td>${employee.empEmail}</td>
+                        <td>${employee.empName}</td>
+                        <td>${employee.empGender}</td>
+                        <td>${employee.empSalary}</td>
+                    </tr>`;
+            });
+
+            tblBody.innerHTML = trs;
+        }
+
+        function empList() {
+            let trs = "";
+            newArr.forEach((employee) => {
+                trs += `<tr>
+                        <td>${employee.empId}</td>
+                        <td>${employee.empEmail}</td>
+                        <td>${employee.empName}</td>
+                        <td>${employee.empGender}</td>
+                        <td>${employee.empSalary}</td>
+                    </tr>`;
+            });
+            empBody.innerHTML = trs;
+        }
+        let newArr = [];
+        function topSalariedEmployee() {
+            newArr = employeeArr.reduce((prevEmp, currentEmp) => {
+                if (currentEmp.empSalary > 30000) {
+                    prevEmp.push(currentEmp);
+                }
+                return prevEmp;
+            }, []);
+            empList();
+
+            console.log(newArr);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+           /* width: 50vw; */
+                              height: 30vh;
+                              font-weight: bolder;
+                               background-color: teal; 
+                               
+                               
+        }
+
+        .dark{
+            background-color: black;
+            color: orange;
+
+        }
+
+        /* .light{
+            background-color: grey;
+        }
+
+        .danger{
+                 background-color: red;
+        }
+
+        .sucess{
+background-color: olive;
+        } */
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        
+
+        <div>
+        <button onclick="toggle()">change</button>
+
+     </div>
+     <div onmouseenter="mouseenter()" onmouseleave="mouseleave()" class="container">
+          <img src="" alt="" id="myImg">
+     </div>
+     <div><h1>welcome to logic hub</h1></div>
+
+    </div>
+    <script>
+      
+
+
+
+          const myImage=document.querySelector("#myImg")
+        const container=document.querySelector(".container")
+        // container.innerText="welcome to logichub"
+
+        
+
+        function toggle(){
+            const elements=  document.querySelectorAll("*");
+            for (const element of elements) {
+                element.classList.toggle("dark");
+                
+            }
+            //  container.classList.toggle("light")
+       }
+
+        function mouseenter(){
+              myImage.setAttribute("src" , "images/4.jpeg")
+              myImage.setAttribute("style" , "width:500px; height:400px;border:")
+              let imgPath=myImg.getAttribute("src")
+             console.log(imgPath)
+            // myImage.setAttribute('src','')
+            // // container.setAttribute=(`class`, "danger")
+            // className.container="danger ABC"
+             container.classList.add("danger")
+        }
+  
+
+        function mouseleave(){
+             myImage.setAttribute("src" , "")
+            // container.setAttribute=(`class`, "sucess")
+            //  container.className="sucess"
+             container.classList.add("sucess")
+             container.classList.remove("danger")
+
+        }
+
+        
+    </script>
+</body>
+</html>

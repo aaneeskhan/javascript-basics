@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        // arrow function
+    //   const fun = (x, y) => {
+    //     res = x + y;
+    //   }
+    //   fun(2,3)
+    //   console.log(res)
+
+ //   forEach function
+
+      // let arr=[1,2,3,4,5,6,7,8]
+
+      // arr.forEach(val=>console.log(val))
+
+      let numberArray=[1,2,3,4,5,6,7,8]
+
+       numberArray.forEach((element,index)=>{
+        console.log(`the element at index ${index} is ${element}`)
+       })
+      console.log(`the entire array is  ${numberArray}`)
+      console.log("the entire array is", numberArray)
+
+
+ //   callBack function
+
+      function sub(x, y) {
+        let res = x - y;
+        console.log(res);
+      }
+
+      function add(x, y, func) {
+        let res = x + y;
+
+        console.log(res);
+        
+
+        func(res, 3);
+      }
+
+      add(2, 3, sub);
+
+      function mul(x, y, func) {
+        let res = x * y;
+        console.log(res);
+        func(res, 3);
+      }
+      mul(2, 3, add);
+
+
+      function div(x, y, func3) {
+        let res = x / y;
+        console.log(res);
+        func3(res, 3);
+      }
+      div(2, 3, sub);
+
+
+
+    </script>
+  </body>
+</html>

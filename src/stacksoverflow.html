@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+ function square(x){
+    
+    let res=x*x
+    return res
+
+}
+
+function mul(x,y){
+    let r =x*y
+    let res=square(r)
+    return res
+}
+
+function div(x,y){
+    let r=x/y
+    let res=mul(r,2)
+    return res
+
+
+}
+     function sub(x,y){
+         let r=x-y
+        let res=div(r,2)
+        return res
+        
+        }
+
+        let add = function sum(x,y){
+        let r=x+y
+        let res=sub(r,2)
+        console.log(res)
+        return res
+        }(2,3)
+        
+
+         
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

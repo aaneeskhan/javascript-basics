@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        padding: 30px;
+      }
+
+      body {
+        background-color: rgb(143, 140, 136);
+      }
+
+      .item1 {
+        background-color: rgb(216, 133, 25);
+      }
+
+      .item2 {
+        background-color: rgb(152, 218, 47);
+      }
+
+      .item3 {
+        background-color: rgb(31, 161, 155);
+      }
+
+      .item4 {
+        background-color: rgb(89, 11, 134);
+      }
+    </style>
+  </head>
+
+  <body class="box">
+    hello
+    <div class="box item1" id="div1">
+      <div class="box item2" id="div2">
+        <div class="box item3" id="div3">
+          <div class="box item4" id="div4">
+            <button id="btn">Click me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const div1 = document.querySelector("#div1");
+      const div2 = document.querySelector("#div2");
+      const div3 = document.querySelector("#div3");
+      const div4 = document.querySelector("#div4");
+      const btn = document.querySelector("#btn");
+
+      document.addEventListener(
+        "click",
+        function () {
+          console.log("document is clicked");
+                                              // true is event capturing         false means eventbubbling by   defult
+        },
+        false
+      );
+
+      document.body.addEventListener(
+        "click",
+        function () {
+          this.style.border = "2px solid red";
+          console.log("body is clicked");
+        },
+        false
+      );
+
+      btn.addEventListener(
+        "click",
+        function (event) {
+          this.style.border = "2px solid red";
+          console.log("btn is clicked");
+        },
+        false
+      );
+
+      div4.addEventListener(
+        "click",
+        function (event) {
+           event.stopPropagation();
+          this.style.border = "2px solid red";
+          console.log("div4 is clicked");
+        },
+        false
+      );
+
+      div3.addEventListener(
+        "click",
+        function () {
+          this.style.border = "2px solid red";
+          console.log("div3 is clicked");
+        },
+        false
+      );
+
+      div2.addEventListener(
+        "click",
+        function () {
+          this.style.border = "2px solid red";
+          console.log("div2 is clicked");
+        },
+        false
+      );
+
+      div1.addEventListener(
+        "click",
+        function () {
+          this.style.border = "2px solid red";
+          console.log("div1 is clicked");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

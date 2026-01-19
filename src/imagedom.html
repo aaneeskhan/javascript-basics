@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .myClass {
+        color: blue;
+        text-align: center;
+    }
+
+
+    .myClass2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: green;
+    }
+
+    .myClassImg {
+        
+        width: 200px;
+        height: 150px;
+        margin: 20px auto;
+    }
+    button{
+        display: block;
+        margin: auto;
+    }
+</style>
+
+<body>
+
+    <div id="myDiv"></div>
+
+
+    <script>
+
+        const myDiv = document.querySelector("#myDiv");
+        const h1 = document.createElement("h1");
+        h1.innerHTML = ("Hello World");
+        myDiv.appendChild(h1);
+        myDiv.className = "myClass";
+        console.dir(h1);
+
+        
+        
+        const para = document.createElement("p");
+        para.innerHTML = ("This is a paragraph.");
+        para.className = "myClass2";
+        myDiv.appendChild(para);
+        console.dir(para);
+        
+        const btn = document.createElement("button")
+        btn.setAttribute("id", "btnId")
+        btn.innerHTML="Image Add"
+        myDiv.appendChild(btn)
+
+        const newDiv = document.createElement("div")
+        newDiv.className = "div2";
+        myDiv.appendChild(newDiv)
+
+
+        const imageArray = ["images/11.JPG","images/12.JPG","images/14.JPG","images/15.JPG",];
+                    
+
+
+        for (let path of imageArray) {
+             const img = document.createElement("img");
+            img.src=path;  
+            console.dir(path)  
+
+            img.className = "myClassImg";
+            newDiv.appendChild(img);
+            
+        }
+         const imageArray2 = ["images/16.JPG", "images/17.JPG","images/18.JPG","images/19.JPG","images/20.JPG","images/21.JPG","images/22.JPG","images/23.JPG","images/24.JPG","images/25.JPG","images/26.JPG"]
+                    
+        let index = 0;
+        btn.addEventListener("click", (event) =>{
+            const img = document.createElement("img");
+            img.src = imageArray2[index];
+            img.className = "myClassImg";
+            newDiv.appendChild(img);
+            index++;
+            if (index + 1 > imageArray2.length) {
+                btn.disabled="true";
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

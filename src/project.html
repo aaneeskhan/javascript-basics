@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Account</h1>
+    <div>
+        <form action="" id="createForm">
+            <div>
+                <label for="userName">userName</label>
+                <input type="text" name="userName" id="userName">
+            </div>
+             <div>
+                <label for="Name">Name</label>
+                <input type="text" name="Name" id="Name">
+            </div>
+             <div>
+                <label for="Email">Email</label>
+                <input type="Email" name="Email" id="Email">
+            </div>
+             <div>
+                <label for="contactNo">contactNo</label>
+                <input type="number" name="contactNo" id="contactNo">
+            </div>
+             <div>
+                <label for="Select Gender">Select Gender</label>
+                <select name="gender" id="">
+                    <option value=""> Gender</option>
+                     <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+            </div>
+             <div>
+              <label for="userRole">userRole</label>
+                <select name="userRole" id="">
+                    <option value="">userRole</option>
+                    <option value="1">Admin</option>
+                    <option  value="2">Client</option>
+                    <option value="3">Guide</option>
+                </select>
+            </div>
+             <div>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password">
+            </div>
+             <div>
+                <label for="confirmPassword">confirmPassword</label>
+                <input type="Password" name="confirmPassword" id="confirmPassword">
+            </div>
+                  <button type="submit">create</button>
+
+        </form>
+    </div>
+
+    <script>
+        
+        
+        document.querySelector("#createForm").addEventListener("submit", async function(event){
+
+            event.preventDefault();
+
+           const formData = new FormData(this);
+           const client = Object.fromEntries(formData);
+           client.gender= Number(client.gender);
+           client.userRole= Number(client.userRole);
+
+           try {
+            const response = await fetch("https://trekdekashmirapi.logichubss.com/api/Accounts/signUp", {
+
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(client)
+        });
+
+        const responseData = await response.json();
+
+        if (responseData.isSuccess) {
+            alert("Create Client successful");
+          window.location.href = "./client-list.html";
+        } else {
+            alert("Failed to create Client");
+        }
+    } 
+     catch (error) {
+        console.log(error);
+        alert("Something went wrong.");
+    }
+           
+
+        }); 
+
+        
+    </script>
+</body>
+</html>
+

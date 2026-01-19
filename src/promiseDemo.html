@@ -9,11 +9,11 @@
 
 <body>
           <script>
-                    function success(employee) {
-                              console.log('promise fullfilled ', data)
+                    function fullfilled(data) {
+                              console.log(data)
                     }
-                    function reject(data) {
-                              console.log('sorry promise rejected', data)
+                    function failure(err) {
+                              console.log(err)
                     }
 
                     let prom = new Promise((fullfilled, failure) => {
@@ -25,10 +25,10 @@
                                         failure("Something went wrong! actually donomiator is zero");
                               }
                               else {
-                                        fullfilled("Everything is cool");
+                                        fullfilled(`Everything is cool, res=${result}`);
                               }
                     });
-                    prom.then(success).catch(reject)
+                    prom.then(fullfilled).catch(failure)
 
                     // 
 

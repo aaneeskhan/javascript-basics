@@ -1,0 +1,45 @@
+[
+    {
+        "id":101,
+        "name":"ifra",
+        "email":"ifra2222@gmail.com",
+        "age":"24",
+        "salary":20000
+    },
+
+     {
+        "id":102,
+        "name":"asim",
+        "email":"asim@gmail.com",
+        "age":"24",
+        "salary":20000
+    },
+     {
+        "id":103,
+        "name":"saba",
+        "email":"saba@gmail.com",
+        "age":"24",
+        "salary":20000
+    },
+     {
+        "id":104,
+        "name":"yasir",
+        "email":"yasir@gmail.com",
+        "age":"24",
+        "salary":20000
+    },
+     {
+        "id":105,
+        "name":"serat",
+        "email":"serat@gmail.com",
+        "age":"21",
+        "salary":20000
+    },
+     {
+        "id":106,
+        "name":"farhat",
+        "email":"farhat@gmail.com",
+        "age":"28",
+        "salary":30000
+    }
+]

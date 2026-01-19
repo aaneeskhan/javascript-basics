@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete</title>
+  </head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    div {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      padding: 6px;
+      width: 200px;
+    }
+
+    button {
+      padding: 6px 12px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+    }
+
+    thead {
+      background-color: #e5e7eb;
+      font-weight: bold;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+
+    td button {
+      background-color: #dc2626;
+    }
+
+    td button:hover {
+      background-color: #991b1b;
+    }
+  </style>
+
+  <body>
+    <div>
+      <div>
+        <label for="empId">Emp Id:</label>
+        <input type="number" id="empId" />
+      </div>
+
+      <div>
+        <label for="empName">Emp Name:</label>
+        <input type="text" id="empName" />
+      </div>
+
+      <div>
+        <label for="empGender">Emp Gender:</label>
+        <select id="empGender">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+
+      <div>
+        <button onclick="submitEmp()">Add Emp</button>
+      </div>
+
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <td>Emp Id</td>
+              <td>Emp Name</td>
+              <td>Emp Gender</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+
+          <tbody id="tblBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      let empArr = [];
+
+      function submitEmp() {
+        const empId = document.querySelector("#empId").value;
+        const empName = document.querySelector("#empName").value;
+        const empGender = document.querySelector("#empGender").value;
+
+        const emp = {
+          empId,
+          empName,
+          empGender,
+        };
+
+        empArr.push(emp);
+        showEmp();
+      }
+
+      function showEmp() {
+        let trs = "";
+
+        empArr.forEach((emp) => {
+          trs += `
+              <tr>
+                    <td>${emp.empId}</td>
+                    <td>${emp.empName}</td>
+                    <td>${emp.empGender}</td>
+
+                    <td><button id"btnDelete">Delete</button></td>
+                </tr>`;
+        });
+
+        tblBody.innerHTML = trs;
+      }
+
+      tblBody.addEventListener("click", (event) => {
+        if (event.target.tagName === "BUTTON") {
+          event.target.parentElement.parentElement.style.display = "none";
+          empArr.pop(event.target.parentElement.parentElement);
+        }
+      });
+    </script>
+  </body>
+</html>

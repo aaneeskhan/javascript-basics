@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 60%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid lightblue;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: lightblue;
+        }
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Employee List</h2>
+
+<table id="employeeTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>01</td>
+            <td>Ifra</td>
+            <td>Female</td>
+            <td>meerifra2222@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>Asim</td>
+            <td>Male</td>
+            <td>asim@gmail.com</td>
+            <td>200000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td>shilpee</td>
+            <td>female</td>
+            <td>shilpee@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+         <tr>
+            <td>04</td>
+            <td>Bushra</td>
+            <td>Female</td>
+            <td>bushra@gmail.com</td>
+            <td>100300</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+         <tr>
+            <td>05</td>
+            <td>Asif</td>
+            <td>Male</td>
+            <td>asif@gmail.com</td>
+            <td>130000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+         <tr>
+            <td>06</td>
+            <td>Humaira</td>
+            <td>Female</td>
+            <td>humaira@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr><tr>
+            <td>07</td>
+            <td>jibran</td>
+            <td>male</td>
+            <td>jibran@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>08</td>
+            <td>Fatima</td>
+            <td>Female</td>
+            <td>fatima@gmail.com</td>
+            <td>20000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>09</td>
+            <td>Huzaifa</td>
+            <td>Female</td>
+            <td>huzaifa@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Zainab</td>
+            <td>Female</td>
+            <td>zainab@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Amania</td>
+            <td>Female</td>
+            <td>amania@gmail.com</td>
+            <td>10000</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function deleteRow(button) {
+        const row = button.parentElement.parentElement;
+        row.remove();
+        
+    }
+</script>
+
+</body>
+</html>

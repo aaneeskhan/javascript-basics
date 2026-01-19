@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="txtRollNo" placeholder="RollNo" />
+    <input type="text" id="txtName" placeholder="txtName" />
+    <input type="text" id="txtEmail" placeholder="txtEmail" />
+    <input type="text" id="txtFee" placeholder="txtFee" />
+    <div>
+                <table>
+                        <thead>
+                                <tr>
+                                        <td>RollNo</td>
+                                        <td>Name</td>
+                                        <td>email</td>
+                                        <td>fee</td>
+                                </tr>
+                        </thead>
+                        <tbody id="tblBody">
+
+                        </tbody>
+                </table>
+                <h1 style="color:red" id="errorMessage"></h1>
+        </div>
+
+     <input type="number" id="txtNum"> 
+    <ul id="numUL">
+    </ul>
+
+    <button onclick="addStudent()">Add</button>
+    <button onclick="addToUL()">addToUL</button> 
+    <button onclick="remove()">remove</button>
+
+    <script>
+      const studentList = [
+        {
+          rollNo: 101,
+          name: "Dayan",
+          email: "dayan@gmail.com",
+          fee: 50000,
+        },
+        {
+          rollNo: 102,
+          name: "Ifra",
+          email: "ifra@gmail.com",
+          fee: 60000,
+        },
+        {
+          rollNo: 103,
+          name: "Sabah",
+          email: "asim@gmail.com",
+          fee: 60000,
+        },
+      ];
+
+      
+       const txtNum=document.querySelector("#txtNum")
+      const numUL = document.querySelector("#myUL");
+    //   const liLIst = document.querySelector("#liLIst");
+
+    function addStudent() {
+                        let rollNo1 = txtBoxRollNo.value;
+                        let name1 = txtBoxName.value;
+                        let marks1 = txtBoxMarks.value;
+
+                        let student = {
+                                rollNo: rollNo1,
+                                name: name1,
+                                marks: marks1
+                        }
+
+                        studentList.push(student);
+                        showStudent();
+                }
+ 
+
+        let rows = "";
+                        studentList.forEach(student=>{
+                                    rows += `<tr>
+                                                  <td>${student.rollNo}</td>
+                                                  <td>${student.name}</td>
+                                                  <td>${student.marks}</td>
+                                        </tr>`
+                        })
+
+                        tblBody.innerHTML = rows;
+
+                
+
+     
+    </script>
+  </body>
+</html>

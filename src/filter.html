@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+
+        <div>
+            <label for="empId">Employee Id:</label>
+            <input type="text" id="empId">
+        </div>
+
+        <div>
+            <label for="empName">Employee Name:</label>
+            <input type="text" id="empName">
+        </div>
+
+        <div>
+            <label for="empGender">Employee Gender:</label>
+            <select name="empGender" id="empGender">
+
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="empSalary">Employee Salary</label>
+            <input type="text" id="empSalary">
+        </div>
+
+
+        <div>
+            <input type="text" id="searchEmp">
+            <button onclick="searchEmployeeById()">Search By Id</button>
+            <button onclick="searchEmployeeByName()">Search By Name</button>
+            <button onclick="addEmployee()">Add</button>
+
+        </div>
+
+        <div>
+            <table class="myTable">
+                <thead>
+                    <tr>
+                        <th>Employee Id</th>
+                        <th>Employee Name</th>
+                        <th>Employee Gender</th>
+                        <th>Employee Salary</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let employeesArr = [];
+        const tblBody = document.querySelector("#tblBody");
+        function addEmployee() {
+
+            const empId = document.querySelector("#empId").value;
+            const empName = document.querySelector("#empName").value;
+            const empGender = document.querySelector("#empGender").value;
+            const empSalary = document.querySelector("#empSalary").value;
+
+
+
+            const employee =
+            {
+
+                empId,
+                empName,
+                empGender,
+                empSalary
+
+
+            }
+
+            employeesArr.push(employee);
+            showEmployee();
+
+        }
+
+        function showEmployee() {
+
+            let trs = "";
+            employeesArr.filter(employee => {
+
+                trs += ` <tr>
+                <th>${employee.empId}</th>
+                <th>${employee.empName}</th>
+                <th>${employee.empGender}</th>
+                <th>${employee.empSalary}</th>
+            </tr>`
+
+
+            })
+
+            tblBody.innerHTML = trs;
+
+        }
+
+        function searchEmployeeById() {
+            const searchEmp = document.querySelector("#searchEmp").value;
+            let newArr = employeesArr.filter((emp) => emp.empId == searchEmp)
+            if (newArr.length > 0) {
+                employeesArr = newArr
+                showEmployee()
+            }
+
+
+
+
+
+        }
+
+
+        function searchEmployeeByName() {
+            const searchEmp = document.querySelector("#searchEmp").value;
+            let newArr = employeesArr.filter((emp) => emp.empName == searchEmp)
+            if (newArr.length > 0) {
+                employeesArr = newArr
+                showEmployee()
+            }
+
+        }
+
+    </script>
+</body>
+</html>

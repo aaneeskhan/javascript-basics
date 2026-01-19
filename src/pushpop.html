@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtId" placeholder="txtId">
+    <input type="text" id="txtName" placeholder="txtName">
+    <input type="text" id="txtSalary" placeholder="txtSalary">
+
+    <input type="number" id="txtNum">
+    <ul id="numUL"></ul>
+
+    <button onclick="add()">Add</button>
+    <button onclick="addToUL()">addToUL</button>
+    <!-- <button onclick="remove()">remove</button> -->
+
+    <script>
+        const arr=[]
+        const txtNum=document.querySelector("#txtNum")
+        const numUL=document.querySelector("#numUL")
+        // const txtNum=document.querySelector("#txtId")
+
+        function add(){
+            let val=txtNum.val
+            arr.push(val)
+            console.log(arr)
+        }
+
+        function addToUL(){
+            let liList='';
+            arr.forEach(element=> {
+                liList+= `<li>${element}</li>`
+            })
+            numUL.innerHTML=liList
+        }
+
+        function remove(){
+            arr.pop()
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

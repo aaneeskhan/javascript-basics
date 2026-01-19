@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="email" id="email" placeholder="Enter email" />
+    <button onclick="getEmail()">Submit</button>
+
+    <h1 id="h1emailPart"></h1>
+    <h1 id="h1domainPart"></h1>
+    <h1 id="h1topLevelDomain"></h1>
+    <!-- ifra@gmail.com  -->
+   
+   
+   <script>
+      function getEmail() {
+        let email = document.querySelector("#email").value;
+
+        let atIndex = email.indexOf("@");
+        let dotIndex = email.lastIndexOf("."); 
+
+        let emailPart = email.substring(0, atIndex);
+        let domainPart=email.substring(atIndex+1,dotIndex);
+        let topLevelDomain = email.substring(dotIndex + 1);
+        
+
+        let h1emailPart=document.querySelector("#h1emailPart");
+        let h1domainPart=document.querySelector("#h1domainPart");
+        let h1topLevelDomain=document.querySelector("#h1topLevelDomain");
+
+        h1emailPart.innerHTML=emailPart;
+        h1domainPart.innerHTML=domainPart;
+        h1topLevelDomain.innerHTML=topLevelDomain;
+      }
+    </script>
+  </body>
+</html>

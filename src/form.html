@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+    <input type="text" id="textInput" placeholder="Enter some text">
+    </div>
+    <div id="result" style="background-color: red; width: 300px; height: 400px;" >
+    </div>
+    <div>
+    <button onclick="show()">show</button>
+    </div>
+
+<script>
+    let txtInput=document.querySelector("#textInput");
+    let result=document.querySelector("#result");
+
+    function show(){
+        const name=textInput.value;
+         result.innerHTML=name
+    }
+</script>
+</body>
+</html>
