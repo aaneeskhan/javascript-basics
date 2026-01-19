@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+</head>
+
+<body>
+
+
+          <script>
+                    document.querySelector
+                    console.log(location)
+                    //http  protocol
+                    // ://
+                    // 198.168.1.55  ip address or domain name  host name
+                    // :5500  portno
+                    // 198.168.1.55:5500 host
+                    //src/employee/employeeDetail.html pathname
+                    // ?id=93af55fe-1bd1-4586-baa0-1b52cb1eedd3 search
+
+
+                    //http://127.0.0.1:5500/src/employee/employeeDetail.html?id=599108f6-77f4-48d1-8eff-42cffd7a746e&name=Himayat3
+                    //http protocol
+                    // 127.0.0.1 or logichubss.com  ip address or domain  hostname or host
+                    // 5500 port no
+                    // /src/employee/employeeDetail.html     pathname
+                    // ?id=599108f6-77f4-48d1-8eff-42cffd7a746e&name=Himayat3  search
+                    // console.log(window.location)
+
+                    async function getEmployeeDetails() {
+
+
+                              const params = new URLSearchParams(location.search);
+                              let id = params.get("id");
+                           
+
+                              const response = await fetch(`https://trainingapi.logichubss.com/api/employees/${id}`)
+                              const employeeData = await response.json();
+                              if(responseData.isSuccess){
+                                        const detail=employeeData.value;
+                                        console.log(detail)
+
+                              }
+
+                    }
+
+                    getEmployeeDetails()
+          </script>
+          <h1>Welcome Employee Details</h1>
+</body>
+
+</html>
