@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+                <table>
+                        <thead>
+                                <tr>
+                                        <td>name</td>
+                                        <td>email</td>
+                                        <td>contect</td>
+                                        <td>profile</td>
+                                </tr>
+                        </thead>
+                        <tbody id="tblBody">
+
+                        </tbody>
+                </table>
+                
+        </div>
+    </div>
+
+    <script>
+        const baseurl="https://trekdekashmirapi.logichubss.com/"
+        function loadAccounts(){
+            fetch(baseurl+"api/accounts/by-role?userRole=1",{
+                method:'Get'
+
+            }).then(response=>{
+                return response.json()
+            }).then(data=>{
+                console.log(data)
+                let tbody=document.querySelector("#tblBody")
+                if(data.isSuccess){
+                    const accountList=data.result
+                    console.log(accountList)
+                    accountList.forEach(account => {
+                        let tr=document.createElement('tr')
+                         tr.innerHTML= `
+                                                  <td>${account.name}</td>
+                                                  <td>${account.email}</td>
+                                                  <td>${account.contactNo}</td>
+                                              
+                                             <td>      <img src="${baseurl}${account.filePath}"> </td>
+                                        `
+
+
+                                        tbody.appendChild(tr)
+                        });
+
+                        
+                    }
+                    
+            })
+        }
+        loadAccounts()
+        
+    </script>
+</body>
+</html>
